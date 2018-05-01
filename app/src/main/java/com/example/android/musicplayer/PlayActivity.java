@@ -1,8 +1,8 @@
 package com.example.android.musicplayer;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +15,7 @@ public class PlayActivity extends AppCompatActivity {
 
         //Get title and artist from previous Activity.
         Intent intent = getIntent();
-        SongPlaying songPlaying = intent.getParcelableExtra("Song Playing");
+        SongObject songPlaying = intent.getParcelableExtra("Song Playing");
         int imageRes = songPlaying.getImageResourceId();
         String title = songPlaying.getSong();
         String artist = songPlaying.getArtist();
