@@ -71,7 +71,6 @@ public class SongObject implements Parcelable {
         return mImageResourceId;
     }
 
-
     @Override
     public int describeContents() {
         return 0;

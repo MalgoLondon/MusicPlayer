@@ -20,7 +20,9 @@
         <activity android:name=".AllsongsActivity" />
         <activity android:name=".GenresActivity" />
         <activity android:name=".SongAdapter" />
-        <activity android:name=".PlayActivity"></activity>
+        <activity android:name=".PlayActivity" />
+        <activity android:name=".GenreObject" />
+        <activity android:name=".GenreAdapter"></activity>
     </application>
 
 </manifest>

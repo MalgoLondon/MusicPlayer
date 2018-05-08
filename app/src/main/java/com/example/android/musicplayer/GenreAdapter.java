@@ -1,24 +1,21 @@
 package com.example.android.musicplayer;
 
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+        import android.app.Activity;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.ArrayAdapter;
+        import android.widget.ImageView;
+        import android.widget.TextView;
+        import java.util.ArrayList;
 
-import java.util.ArrayList;
-
-public class SongAdapter extends ArrayAdapter<SongObject> {
-    public SongAdapter(Activity context, ArrayList<SongObject> songs) {
+public class GenreAdapter extends ArrayAdapter<GenreObject> {
+    public GenreAdapter(Activity context, ArrayList<GenreObject> genres) {
         // **Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // We use 0 as a second argument because we don't need to rely on the ArrayAdapter to create a ListView for us.
         // Instead, the getView method will handle the inflating of the layout from the layout ressource ID.*/
-        super(context, 0, songs);
+        super(context, 0, genres);
     }
 
     @Override
@@ -32,29 +29,23 @@ public class SongAdapter extends ArrayAdapter<SongObject> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_item, parent, false);
+                    R.layout.activity_genre_object, parent, false);
         }
 
         // Get the object located at this position in the list
-        SongObject currentSong = getItem(position);
+        GenreObject currentGenre = getItem(position);
 
-        // Find the TextView in the list_item.xml layout
-        TextView songTextView = (TextView) listItemView.findViewById(R.id.song_name);
+        // Find the TextView in the activity_genre_object.xml layout
+        TextView genreTextView = (TextView) listItemView.findViewById(R.id.genre_list_name);
         // Get the song title from the current song object
         // set this text on the name TextView
-        songTextView.setText(currentSong.getSong());
+        genreTextView.setText(currentGenre.getGenre());
 
-        // Find the TextView in the list_item.xml layout
-        TextView artistTextView = (TextView) listItemView.findViewById(R.id.artist_name);
-        // Get the artist name from the current Song object
-        // set this text on the number TextView
-        artistTextView.setText(currentSong.getArtist());
-
-        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
-        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        // Get the image resource ID from the current AndroidFlavor object and
+        // Find the ImageView in the activity_genre_object.xml layout with the ID list_item_icon
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon_genre);
+        // Get the image resource ID from the current GenreObject
         // set the image to iconView
-        iconView.setImageResource(currentSong.getImageResourceId());
+        iconView.setImageResource(currentGenre.getImageResourceId());
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
